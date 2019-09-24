@@ -1,0 +1,70 @@
+DATA:
+  arreglo_1       5             //  Arreglo 1   3                        //
+                  3             //              -3                        //
+                  -3            //              2                      //
+                  2             //              -7                       //
+                  -7            //              5                      //
+                  18            //              7                       //
+                  7             //              -1                       //
+                  -1            //              18                      //
+                  20            //              -30                      //
+                  -30           //              20                     //
+                  20            //              -33                      //
+                  -33           //              20                     //
+                  55            //              -19                      //
+                  -19           //              55                     //
+                  60            //              -18                      //
+                  -18           //              53                      //
+                  53            //              12                     //
+                  12            //              5                      //
+                  5             //              60                       //
+                                                                        //
+  largo_arreglo_1 19
+  aux_1           0
+  aux_2           0
+  max_iteraciones 190
+  contador        0
+
+CODE:
+  MOV A,(largo_arreglo_1)       // Largo del Arreglo 1 en A             //
+  MOV B,arreglo_1
+  JMP empezar
+
+siguiente:
+  POP B
+  INC B
+  POP A
+  JMP empezar
+
+swap:
+  MOV (aux_1),A
+  MOV (aux_2),B
+  POP B
+  MOV A,(aux_2)
+  MOV (B),A
+  INC B
+  MOV A,(aux_1)
+  MOV (B),A
+  MOV (arreglo_1),B
+  POP A
+  JMP empezar
+
+empezar:
+  SUB A,1
+  CMP A,0
+  JEQ end
+  PUSH A
+  MOV A,(B)
+  PUSH B
+  INC B
+  MOV B,(B)
+  CMP A,B
+  JGT swap
+  CMP A,B
+  JLE siguiente
+
+end: JMP end
+
+
+// NOTAS //
+// Para cada iteracion que no ocurra un SWAP, se le agrega 1 a un contador, y si finalmente se logra que sea 0, significa que las iteraciones terminan //
