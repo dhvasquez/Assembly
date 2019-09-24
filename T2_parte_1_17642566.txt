@@ -1,0 +1,79 @@
+DATA:
+
+/////////////////Variables Corrección/////////////////////////////////////
+                                                                        // 
+  num_1_1         120   // Primer byte del primer número                //
+  num_1_2         34    // Segundo byte del primer número               //
+                                                                        // 
+  num_2_1         0     // Primer byte del segundo número               //
+  num_2_2         255   // Segundo byte del segundo número              //
+                                                                        // 
+  res_a           0     // Parte del resultado si es mayor o igual a 0  //
+  res_b           0     // Parte del resultado si es mayor o igual a 0  //
+                                                                        // 
+  res_c           0     // Parte del resultado si es menor a 0          //
+  res_d           0     // Parte del resultado si es menor a 0          //
+                                                                        // 
+//////////////////////////////////////////////////////////////////////////
+
+//! begin [inicio código alumno]
+
+/////////////////Variables Alumno/////////////////////////////////////////
+  aux_1           0
+  aux_2           0
+
+/////////////////Fín Variables Alumno/////////////////////////////////////
+
+CODE:
+
+  JMP main
+
+special_adder:
+
+//////////////////Código Alumnos//////////////////////////////////////////
+  MOV A,(num_1_2)
+  MOV B,A
+  MOV A,(num_2_2)
+  ADD A,B
+  MOV (aux_2),A
+  MOV A,(num_1_1)
+  MOV B,A
+  MOV A,(num_2_1)
+  ADD A,B
+  MOV (aux_1),A
+  CMP A,0
+  JLT menor
+  mayor: MOV A,(aux_1)   // Label solo para ordenar
+	 MOV B,(aux_2)
+	 MOV (res_a),A
+	 MOV (res_b),B
+	 JMP end
+  menor: MOV A,(aux_1)   // Label ejectuado si el numero es menor a 0
+	 MOV B,(aux_2)
+	 MOV (res_c),A
+	 MOV (res_d),B
+	 JMP end
+
+//////////////////Fín Código Alumnos//////////////////////////////////////
+
+//! end [fin código alumno]
+
+/////////////////Corrección///////////////////////////////////////////////
+                                                                        //
+end: JMP end                    // Fín                                  //
+                                                                        //
+main:                                                                   //
+                                                                        //
+  JMP special_adder             // Súmar                                //
+                                                                        //
+  NOP                           // Reservado para Corrección            //
+  NOP                           //                                      //
+  NOP                           //                                      //
+  NOP                           //                                      //
+                                                                        //
+  JMP end                       // Terminar                             //
+                                                                        //
+//////////////////////////////////////////////////////////////////////////
+
+
+
