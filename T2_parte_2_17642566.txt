@@ -1,6 +1,6 @@
 DATA:
 
-/////////////////Variables Corrección/////////////////////////////////////
+/////////////////Variables Correcciï¿½n/////////////////////////////////////
                                                                         //
   arreglo         -35           //  Arreglo                             //
                   -35           //                                      //
@@ -25,11 +25,11 @@ DATA:
                                                                         //
   largo_arreglo   20            // Largo del Arreglo                    //
                                                                         //
-  resultado       0             // Aquí deben guardar el resultado      //
+  resultado       0             // Aquï¿½ deben guardar el resultado      //
                                                                         //
 //////////////////////////////////////////////////////////////////////////
 
-//! begin [inicio código alumno]
+//! begin [inicio cï¿½digo alumno]
 
 /////////////////Variables Alumno/////////////////////////////////////////
   verificando     0
@@ -37,7 +37,7 @@ DATA:
   mayor           0
   cuenta_mayor    0
   
-/////////////////Fín Variables Alumno/////////////////////////////////////
+/////////////////Fï¿½n Variables Alumno/////////////////////////////////////
 
 CODE:
 
@@ -45,8 +45,8 @@ CODE:
 
 sacar_moda:
 
-//////////////////Código Alumnos//////////////////////////////////////////
-// Sumamos el primer numero //
+//////////////////Cï¿½digo Alumnos//////////////////////////////////////////
+  // Sumamos el primer numero //
   MOV B,arreglo
   MOV A,(B)
   MOV (verificando),A
@@ -126,19 +126,19 @@ sacar_moda:
 	MOV (cuenta_mayor),A
 	JMP end
     
-//////////////////Fín Código Alumnos//////////////////////////////////////
+//////////////////Fï¿½n Cï¿½digo Alumnos//////////////////////////////////////
 
-//! end [fin código alumno]
+//! end [fin cï¿½digo alumno]
 
-/////////////////Corrección///////////////////////////////////////////////
+/////////////////Correcciï¿½n///////////////////////////////////////////////
                                                                         //
-end: JMP end                    // Fín                                  //
+end: JMP end                    // Fï¿½n                                  //
                                                                         //
 main:                                                                   //
                                                                         //
   JMP sacar_moda                //                                      //
                                                                         //
-  NOP                           // Reservado para Corrección            //
+  NOP                           // Reservado para Correcciï¿½n            //
   NOP                           //                                      //
   NOP                           //                                      //
   NOP                           //                                      //
