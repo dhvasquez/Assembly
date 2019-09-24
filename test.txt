@@ -22,7 +22,7 @@ DATA:
   largo_arreglo_1 19
   aux_1           0
   aux_2           0
-  max_iteraciones 190
+
   contador        0
 
 CODE:
@@ -45,8 +45,20 @@ swap:
   INC B
   MOV A,(aux_1)
   MOV (B),A
-  MOV (arreglo_1),B
+  //MOV (arreglo_1),B
+  MOV A,(contador)
+  ADD A,1
+  MOV (contador),A
   POP A
+  JMP empezar
+
+verificar:
+  MOV A,(contador)
+  CMP A,0
+  JEQ end
+  MOV A,0
+  MOV (contador),A
+  MOV A,(largo_arreglo_1)
   JMP empezar
 
 empezar:

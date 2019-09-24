@@ -24,22 +24,22 @@
                                                                         //
   largo_arreglo_1 19            // Largo del Arreglo 1                  //
                                                                         //
-  arreglo_2       52            // Arreglo 2                            //
-                  35            //                                      //
-                  -53           //                                      //
-                  22            //                                      //
-                  -3            //                                      //
-                  23            //                                      //
-                  12            //                                      //
-                  57            //                                      //
-                  21            //                                      //
-                  42            //                                      //
-                  -12           //                                      //
-                  -35           //                                      //
-                  14            //                                      //
-                  -23           //                                      //
-                  23            //                                      //
-                  32            //                                      //
+  arreglo_2       52            // Arreglo 2                            //35
+                  35            //                                      //-53
+                  -53           //                                      //22
+                  22            //                                      //-3
+                  -3            //                                      //23
+                  23            //                                      //12
+                  12            //                                      //52
+                  57            //                                      //21
+                  21            //                                      //42
+                  42            //                                      //-12
+                  -12           //                                      //-35
+                  -35           //                                      //14
+                  14            //                                      //-23
+                  -23           //                                      //23
+                  23            //                                      //32
+                  32            //                                      //57
                                                                         //
   largo_arreglo_2 16            // Largo del Arreglo 2                  //
                                                                         //
@@ -48,9 +48,10 @@
 //! begin [inicio código alumno]
 
 /////////////////Variables Alumno/////////////////////////////////////////
+  aux_1           0
+  aux_2           0
 
-
-      //Definir Variables Aquí
+  contador        0
 
 
 /////////////////Fín Variables Alumno/////////////////////////////////////
@@ -60,17 +61,51 @@ CODE:
   JMP main                     // Iniciar Programa
 
 //////////////////Subrutinas Alumnos//////////////////////////////////////
+siguiente:
+  POP B
+  INC B
+  POP A
+  JMP ordenar_arreglo
 
+swap:
+  MOV (aux_1),A
+  MOV (aux_2),B
+  POP B
+  MOV A,(aux_2)
+  MOV (B),A
+  INC B
+  MOV A,(aux_1)
+  MOV (B),A
+  MOV A,(contador)
+  ADD A,1
+  MOV (contador),A
+  POP A
+  JMP ordenar_arreglo
 
-      // Definir Subrutinas Aquí
+algo:
+  MOV A,(contador)
+  CMP A,0
+  JEQ ordenado
+  MOV A,0
+  MOV (contador),A
+  CALL main
 
+ordenado:
+  RET
 
 ordenar_arreglo:                // Recibe Largo en A, Puntero en B
-                
-
-      // Completar Código Aquí
-
-
+  SUB A,1
+  CMP A,0
+  JEQ algo
+  PUSH A
+  MOV A,(B)
+  PUSH B
+  INC B
+  MOV B,(B)
+  CMP A,B
+  JGT swap
+  CMP A,B
+  JLE siguiente
   RET
 
 
