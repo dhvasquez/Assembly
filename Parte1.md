@@ -1,5 +1,8 @@
 # Suma de números de 16 bits en Big Endian
 
+## Nombre: Diego Hao-Hai Vásquez Thio
+## N° Alumno: 17642566
+
 #### Big Endian
 Los números en Big Endian permiten dividir números en bytes, y escribirlos de izquierda a derecha, donde se empieza con el más significativo, y se termina con el menos significativo.
 

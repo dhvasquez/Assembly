@@ -1,5 +1,8 @@
 # Busqueda de moda
 
+## Nombre: Diego Hao-Hai Vásquez Thio
+## N° Alumno: 17642566
+
 #### Lo que se busca
 Dado un array ordenada, se quiere buscar la moda, en caso de haber dos números modales, dejar aquel que se hayá obtenido último
 
